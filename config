@@ -1,0 +1,387 @@
+######################################################################
+#                            hi-my-i3
+# Date    : 12/12/2015
+# Author  : yllr
+# Version : v0.1
+#
+# 依赖:conky(状态栏信息),feh(桌面背景图片设定),dmenu(用户程序菜单),font-awesome(图标字体)
+# 可选组件推荐:xcompmgr(组件背景透明),freetype-infinality(字体渲染),pcmanfm(轻量级文件管理器),xfce4-terminal(自带背景透明的轻量级终端模拟器),scrot(命令行截图工具),Monaco(漂亮的编程字体),mate-power-manager(轻量级电源管理),networkmanager、network-manager-applet和nm-connection-editor（网络管理工具）,alsa-utils（声音管理）
+
+# 部分特性可能需要新版本支持，请更新至最新版本或自行修改相应部分
+# 更多内容请参考:
+# i3 User’s Guide: http://i3wm.org/docs/userguide.html
+# hi-my-i3 github: https://github.com/yllr78/hi-my-i3.git
+#
+######################################################################
+
+#===>$mod key===mod键，mod4一般就是super或者win键。
+set $mod Mod4
+#===>设定工作区名，系统默认为1,2,3等数字，进行了图标字体的设定，喜欢默认数字风格的可以的注释掉下面这些图标设置
+set $WS1  1:
+set $WS2  2:
+set $WS3  3:
+set $WS4  4:
+set $WS5  5:
+set $WS6  6:
+set $WS7  7:
+set $WS8  8:
+set $WS9  9:
+set $WS0 10:
+
+
+#===> wallpaper-固定设定壁纸图片。
+# exec --no-startup-id feh --bg-scale ~/hi-my-i3/Pictures/wallpaper/wallpaper.jpg
+
+#随机更换壁纸（使用脚本~/hi-my-i3/wallpaper.sh来设置随机更换壁纸）。
+# feh--automatically change wallpaer
+exec ~/hi-my-i3/wallpaper.sh &
+
+#===> transparent-设置透明须安装xcompgr，并在此指定软件和透明度（默认0.75），sleep保证transset在其所设置的软件之后启动，根据情况调节大小。
+exec --no-startup-id xcompmgr &
+exec --no-startup-id sleep .2 && exec transset-df -n i3bar 0.75
+
+#===> font-字体及其大小
+# font pango:monospace 10
+font pango:Monaco 10
+
+
+
+# ============================》应用程序设置《===========================
+#===>autostart programs===自启动软件，一般这些软件名字都是小写，可在/usr/share/applications里面查看程序的实际名字。示例：
+exec --no-startup-id mate-power-manager
+exec --no-startup-id fluxgui
+exec --no-startup-id fcitx
+exec --no-startup-id megasync
+exec --no-startup-id kuaipan4uk &
+exec --no-startup-id nutstore
+# exec --no-startup-id firefox
+exec --no-startup-id ss-qt5
+exec --no-startup-id nm-applet
+
+
+#===> float programs-需要浮动的程序（打开程序默认浮动动），此处软件名字大小写要求严格可在/usr/share/applictions里面右键查看程序指向的bin文件名字。
+for_window [class="Gpicview"] floating enable
+# for_window [class="mpv"] floating enable
+for_window [class="Gimp"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="Genymotion"] floating enable
+for_window [class="Vlc"] floating enable
+for_window [class="VirtualBox"] floating enable
+for_window [class="shadowsocks-qt5"] floating enable
+
+
+#===> assign-将某程序打开后放置到指定工作区
+# 数字型工作区设置
+# assign [class="Firefox"] 2
+# assign [class="Atom"] 3
+# assign [class="Thunderbird"]5
+# 图标型工作区设置
+# for_window [class="(?i)Firefox"] move container to workspace $WS2, workspace $WS2, layout tabbed
+for_window [class="(?i)Firefox"] move container to workspace $WS2, workspace $WS2
+for_window [class="(?i)Smplayer"] move container to workspace $WS4, workspace $WS4
+for_window [class="(?i)Mpv"] move container to workspace $WS4, workspace $WS4
+for_window [class="(?i)Pcmanfm"] move container to workspace $WS5, workspace $WS5
+for_window [class="(?i)Virtualbox"] move container to workspace $WS6, workspace $WS6
+
+#===> 为部分软件设定快捷键
+# terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+
+# dmenu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+# browsers-浏览器
+bindsym $mod+Shift+c exec chromium
+bindsym $mod+Shift+f exec firefox
+
+# printscreen-使用scrot工具截屏，Print是键盘上的PrtSc（PrintScreen键）
+bindsym Print exec scrot
+
+# GUI file manager-文件管理器
+bindsym $mod+e exec --no-startup-id pcmanfm
+
+
+# ============================》工作区设置《===========================
+
+# Workspace names
+#workspace "1:Arch" output eDP1
+#workspace "2:Web" output eDP1
+#workspace "3:Code" output eDP1
+#workspace "9:Mail" output eDP1
+
+#===>switch workspace-切换工作区
+# 10switch to workspace-数字型工作区切换
+# bindsym $mod+1 workspace 1
+# bindsym $mod+2 workspace 2
+# bindsym $mod+3 workspace 3
+# bindsym $mod+4 workspace 4
+# bindsym $mod+5 workspace 5
+# bindsym $mod+6 workspace 6
+# bindsym $mod+7 workspace 7
+# bindsym $mod+8 workspace 8
+# bindsym $mod+9 workspace 9
+# bindsym $mod+0 workspace 10
+
+# 10switch to workspace-图标型工作区切换
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+#===> switch to near workspace-相邻工作区切换
+bindsym $mod+Tab workspace next
+bindsym mod1+Tab workspace prev
+
+
+# ============================》窗口调整《===========================
+#===> new window-新打开窗口的风格
+new_window none
+new_float normal
+hide_edge_borders both
+
+#===>window control
+# Use Mouse and $mod to drag floating windows-使用$mod+鼠标左键拖动窗口
+floating_modifier $mod
+
+#===>kill focused window-关闭窗口
+bindsym mod1+F4 kill
+
+#===>hide | show window-隐藏和再现窗口
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show
+
+
+#===>change window's border style-更改窗口风格
+#no border:none | normal | 1pixel:one pixel border-普通/无边框/1像素边框
+bindsym $mod+n border normal
+bindsym $mod+u border none
+bindsym $mod+o border 1pixel
+# toggle border style(normal|none|1px)-在上面三种风格中切换
+bindsym $mod+b border toggle
+
+# ===>窗口大小调整
+# resize window (you can also use the mouse for that)-窗口大小调整$mod+r进入调整，enter结束调整。
+mode "resize" {
+
+    bindsym j resize shrink width 10 px or 1 ppt
+    bindsym k resize grow height 10 px or 1 ppt
+    bindsym l resize shrink height 10 px or 1 ppt
+    bindsym semicolon resize grow width 1 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 1 ppt
+    bindsym Down resize shrink height 10 px or 1 ppt
+    bindsym Up resize grow height 10 px or 1 ppt
+    bindsym Right resize grow width 10 px or 1 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#===>focus-窗口焦点调整
+#焦点跟随鼠标
+focus_follows_mouse yes
+
+# change focus-改变窗口焦点
+bindsym $mod+Shift+h focus left
+bindsym $mod+Shift+j focus down
+bindsym $mod+Shift+k focus up
+bindsym $mod+Shift+l focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left focus left
+bindsym $mod+Shift+Down focus down
+bindsym $mod+Shift+Up focus up
+bindsym $mod+Shift+Right focus right
+
+# move focused window-移动焦点窗口
+bindsym $mod+h move left
+bindsym $mod+j move down
+bindsym $mod+k move up
+bindsym $mod+l move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left move left
+bindsym $mod+Down move down
+bindsym $mod+Up move up
+bindsym $mod+Right move right
+
+#===>窗口拆分设置
+# split in horizontal orientation-左右拆分窗口
+bindsym $mod+mod1+h split h
+# split in vertical orientation-上下拆分窗口
+bindsym $mod+v split v
+
+#===>窗口切换到全屏
+# fullscreen mode for the focused container-全屏
+bindsym $mod+f fullscreen toggle
+
+# change container layout-窗口布局风格
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+#在上面两种风格（堆叠和标签）中切换
+bindsym $mod+c layout toggle split
+
+# toggle tiling / floating-浮动当前窗口或者从浮动变为平铺
+bindsym $mod+Shift+space floating toggle
+
+
+#===>window style-窗口配色
+
+# focused/unfocused window
+# 窗口颜色                        边框     背景    文字    提示
+client.focused                  #1793d0  #1793d0  #ffffff #333333
+client.focused_inactive         #000000  #333333  #ffffff #3399ff
+client.unfocused                #000000  #333333  #ffffff #3399ff
+client.urgent                   #ff0000  #ff0000  #ff0000 #999900
+client.placeholder              #000000  #000000  #ffffff #000000
+client.background               #ffffff
+
+# popup-弹出窗口（如通知）
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+#===> move focused container to workspace-数字模式移动窗口到指定工作区
+# bindsym $mod+mod1+Left  move container to workspace prev, workspace prev
+# bindsym $mod+mod1+Right move container to workspace next, workspace next
+# bindsym $mod+mod1+1 move container to workspace 1
+# bindsym $mod+mod1+2 move container to workspace 2
+# bindsym $mod+mod1+3 move container to workspace 3
+# bindsym $mod+mod1+4 move container to workspace 4
+# bindsym $mod+mod1+5 move container to workspace 5
+# bindsym $mod+mod1+6 move container to workspace 6
+# bindsym $mod+mod1+7 move container to workspace 7
+# bindsym $mod+mod1+8 move container to workspace 8
+# bindsym $mod+mod1+9 move container to workspace 9
+# bindsym $mod+mod1+0 move container to workspace 10
+
+# ===> 图标模式移动窗口到另一个工作区
+bindsym $mod+mod1+Left  move container to workspace prev, workspace prev
+bindsym $mod+mod1+Right move container to workspace next, workspace next
+bindsym $mod+mod1+1 move container to workspace $WS1, workspace $WS1
+bindsym $mod+mod1+2 move container to workspace $WS2, workspace $WS2
+bindsym $mod+mod1+3 move container to workspace $WS3, workspace $WS3
+bindsym $mod+mod1+4 move container to workspace $WS4, workspace $WS4
+bindsym $mod+mod1+5 move container to workspace $WS5, workspace $WS5
+bindsym $mod+mod1+6 move container to workspace $WS6, workspace $WS6
+bindsym $mod+mod1+7 move container to workspace $WS7, workspace $WS7
+bindsym $mod+mod1+8 move container to workspace $WS8, workspace $WS8
+bindsym $mod+mod1+9 move container to workspace $WS9, workspace $WS9
+bindsym $mod+mod1+0 move container to workspace $WS0, workspace $WS0
+
+
+# ============================》系统音量控制《===========================
+# ===>volume control-音量调整，键盘上Fn+音量键
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2dB- unmute
+# bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+# ===>使用$mod+Shift++/-调整音量
+bindsym $mod+Shift+plus exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
+bindsym $mod+Shift+minus exec --no-startup-id amixer -c 0 -q set Master 2dB- unmute
+
+
+# ============================》电源管理设置《===========================
+# ===power-manager-按下$mod+Shift+q mode后，按l/e/r/p分别代表锁屏、退出、重启和关机。
+set $mode_system select: lock(L) exit(E) reboot(R) poweroff(O) cancel(Esc)
+bindsym $mod+Shift+q mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3lock -c '#000000', mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym o exec --no-startup-id systemctl poweroff, mode "default"
+    bindsym Escape mode "default"
+}
+# turn off screen | sleep | shutdown-300秒关闭屏幕
+exec --no-startup-id xset dpms 300
+#===>i3lock===i3锁屏，锁屏壁纸图片必须为.png文件。
+    mode "i3lock: Return to lock/Escape to Cancel" {
+            bindsym Return mode "default" exec i3lock -I 600 -i ~/hi-my-i3/Pictures/wallpaper/lock/lock.png
+            bindsym Escape mode "default"
+    }
+#===>$mod+alt+l锁屏
+    bindsym $mod+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
+
+
+# ============================》i3配置重载《===========================
+# ===> 重新载入配置
+bindsym $mod+Shift+r reload
+# ===> 重新载入配置并重启i3（更改配置文件后只须重载即可生效，不包含自启部分）
+bindsym $mod+Shift+s restart
+# ===> 退出i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# ============================》状态条设置《===========================
+# i3bar
+# ===>i3bar的显示和隐藏
+bindsym $mod+m bar mode toggle
+
+# ==>使用原生i3bar实现状态条
+
+# tray_output-托盘图标显示，eDP1是显示设备名字，可用xrandr命令查看。示例：
+# exec --no-startup-id xrandr --output eDP1 --primary
+# exec --no-startup-id xrandr --output VGA-1 --primary
+
+# 如还外接其他屏幕。示例：屏幕为HDMI1，分辨率指定成1920*1080 并用--right-of （或者 --left-of）指定屏幕显示的左右位置。
+# exec --no-startup-id xrandr --output HDMI1 1920*1080 --right-of eDP1
+
+# bar {
+    # status_command i3status
+    # bar的位置 top 或者 bottom
+    # position top
+    # bar的显示方式，可以不设置使其一直显示，设置为hide在按下$mod键才会出现。
+    # mode hide
+    # workspace_buttons yes
+    # eDP1同上，需要托盘图标必须设置output。
+    # output eDP1
+    # output VGA-1
+    # tray_output primary
+    # tray_padding 0
+    # separator_symbol "|"
+
+# bar的配色
+    # colors {
+    # background 285477
+    # statusline dedede
+    # separator 2d2d2d
+    #         工作区颜色            边框    背景    文字
+            # focused_workspace    #636e88 #285de7 #dedfdg
+            # active_workspace     #556677 #234567 #56ef67
+            # inactive_workspace   #636d72 #2d2d2d #dedede
+            # urgent_workspace     #ffffff #900000 #d23d32
+    # }
+# }
+
+#===>调用conky实现的i3bar
+bar {
+    # i3bar调用conky
+    status_command conky -c ~/hi-my-i3/conkyrc_bar1.10
+    # 显示位置，如果想显示在屏幕下方，就注释这条设置
+    position top
+    # 是否隐藏
+    #mode hide
+    # 显示/隐藏切换键
+    #modifier $mod
+    # 拆解工作区名（隐藏前面的1:2:3:……）
+    strip_workspace_numbers yes
+    # 定义分隔符（适用于i3status）
+    #separator_symbol " "
+    colors {
+        background #333333
+        statusline #FFFFFF
+        #eparator  #3399FF
+        # 工作区颜色         边框    背景    文字
+        focused_workspace  #111111 #111111 #FFFFFF
+        active_workspace   #FFFFFF #FFFFFF #FFFFFF
+        inactive_workspace #333333 #333333 #FFFFFF
+        urgent_workspace   #990000 #990000 #FFFFFF
+        #binding_mode       #990000 #990000 #FFFFFF
+    }
+}
