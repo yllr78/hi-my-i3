@@ -31,7 +31,7 @@ http://fortawesome.github.io/Font-Awesome/cheatsheet/
 
 ## 克隆hi-my-i3到本地
 git clone https://github.com/yllr78/hi-my-i3.git
-# cd 到hi-my-i3目录
+## cd 到hi-my-i3目录
 cd hi-my-i3
 ## 复制配置文件
 cp config ~/.config/i3/config
