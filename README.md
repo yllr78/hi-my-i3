@@ -1,5 +1,6 @@
 # hi-my-i3
 根据网上两种优秀的配置组合成的一个i3配置，请两位前辈允许我的抄袭
+
 ---
 ![i3wm](arch-i3.png)
 
@@ -16,6 +17,7 @@
 - mate-power-manager轻量级电源管理器方便调整亮度（可选）
 - networkmanager,network-manager-applet,nm-connection-editor网络管理工具（可选）
 - alsa-utils声音管理（可选）
+- lxappearance窗体、图标、鼠标主题管理（可选）
 
 ## 字体
 
@@ -26,12 +28,14 @@ http://fortawesome.github.io/Font-Awesome/cheatsheet/
 ## 安装
 
 先行安装所需程序:i3 dmenu feh conky
-- 克隆hi-my-i3到本地
+
+```bash
+# 克隆hi-my-i3到本地
 git clone https://github.com/yllr78/hi-my-i3.git
-- cd 到hi-my-i3目录
+# cd 到hi-my-i3目录
 cd hi-my-i3
-- 复制配置文件
-cp config ~/.config/i3/config
+# 安装
+cp config ~/.config/i3/config```
 若已运行i3需要 `Alt+Shift+R` 重载入配置
 
 ## 启动配置
@@ -89,7 +93,7 @@ $mod key使用的默认的Mod4，**一般指的是**windows键或super键或meta
 
 *建议用一个固定的路径设置壁纸或锁屏，需要更换壁纸的时候将新图片命名位wallpaper放进去覆盖即可，比较方便（当然要注意后缀名是否一致）。*
 
-## 随机壁纸
+### 随机壁纸
 本配置**默认**使用一个wallpaper.sh的脚本随机更换壁纸。
 将需要设定的壁纸放置到~/hi-my-i3/Pictures/wallpaper/目录下即可（如需更换壁纸路径，请在i3/config文件中根据注释说明更改）。
 
