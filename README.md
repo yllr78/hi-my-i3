@@ -29,11 +29,11 @@ http://fortawesome.github.io/Font-Awesome/cheatsheet/
 
 先行安装所需程序:i3 dmenu feh conky
 
-# 克隆hi-my-i3到本地
+## 克隆hi-my-i3到本地
 git clone https://github.com/yllr78/hi-my-i3.git
 # cd 到hi-my-i3目录
 cd hi-my-i3
-# 安装
+## 复制配置文件
 cp config ~/.config/i3/config
 若已运行i3需要 `Alt+Shift+R` 重载入配置
 
