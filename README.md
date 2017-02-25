@@ -18,6 +18,7 @@
 - networkmanager,network-manager-applet,nm-connection-editor网络管理工具（可选）
 - alsa-utils声音管理（可选）
 - lxappearance窗体、图标、鼠标主题管理（可选）
+- sddm轻量级显示管理器用于系统图形化登录管理（可选）
 
 ## 字体
 
@@ -31,15 +32,21 @@ http://fortawesome.github.io/Font-Awesome/cheatsheet/
 
 ## 克隆hi-my-i3到本地
 git clone https://github.com/yllr78/hi-my-i3.git
+
 ## cd 到hi-my-i3目录
+
 cd hi-my-i3
+
 ## 复制配置文件
+
 cp config ~/.config/i3/config
+
 若已运行i3需要 `Alt+Shift+R` 重载入配置
 
 ## 启动配置
 
 在用户目录下的.xinitrc文件的最后一句配置以下命令，以后开机登录后就可以用startx命令启动i3wm
+
 exec i3
 
 ## 按键
