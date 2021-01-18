@@ -13,6 +13,7 @@
 - infinality字体渲染美化（可选）
 - pcmanfm轻量级文件管理器（可选）
 - xfce4-terminal自带背景透明的轻量级终端模拟器（可选）
+- xfce4-appfinder可以快速搜索程序的起动器（可选）
 - scrot本配置默认使用的命令行截图工具（可选）
 - mate-power-manager轻量级电源管理器方便调整亮度（可选）
 - networkmanager,network-manager-applet,nm-connection-editor网络管理工具（可选）
@@ -22,7 +23,7 @@
 
 ## 字体
 
-- Monaco:一个很好看的等宽英文字体，非常适用于写代码，若显示不佳请用infinality渲染
+- Monaco_Linux-Powerline:一个很好看的等宽英文字体，非常适用于写代码，若显示不佳请用infinality渲染，打过字体补丁不会出现terminal找不到的问题，还可作为vim的powerline插件字体来用。
 - font-awesome:开源的图标字体，可通过简单地复制粘贴使用，具体查看:
 http://fortawesome.github.io/Font-Awesome/cheatsheet/
 
@@ -54,6 +55,12 @@ $mod key使用的默认的Mod4，**一般指的是**windows键或super键或meta
 此配置在i3wm的默认配置上稍作修改，参照了windows下的常用快捷键和vim按键习惯。
 
 注：i3设置的demu默认快捷键为`$mod+d`，输入关键字即可查找相关程序，回车键确定启动当前选中（文字高亮）程序。
+
+- 暂时显示i3bar：`$mod`按住显示，松开隐藏。
+
+- 切换i3bar显示或隐藏：`$mod+m`
+
+- 搜索系统安装的程序：`$mod+a`可以输入关键字查找程序，与demu虽然有重复，但是部分隐藏的程序可以通过xfce-appfinder找出来。
 
 - 截图：`PrtSc`（PrtSc即PrintScreen键，参考的windwos下的截屏快捷键）。
 
