@@ -90,6 +90,8 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 # dmenu
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# appfinder
+bindsym $mod+a exec --no-startup-id xfce4-appfinder
 
 # browsers-浏览器
 bindsym $mod+Shift+c exec chromium
@@ -153,7 +155,7 @@ floating_modifier $mod
 #===>kill focused window-关闭窗口
 bindsym mod1+F4 kill
 
-#===>hide | show window-隐藏和再现窗口
+#===>hide | show window-隐藏和再现窗口，minus为-号，plus为+号
 bindsym $mod+minus move scratchpad
 bindsym $mod+plus scratchpad show
 
@@ -215,7 +217,7 @@ bindsym $mod+Up move up
 bindsym $mod+Right move right
 
 #===>窗口拆分设置
-# split in horizontal orientation-左右拆分窗口
+# split in horizontal orientation-左右拆分窗口（默认）
 bindsym $mod+mod1+h split h
 # split in vertical orientation-上下拆分窗口
 bindsym $mod+v split v
