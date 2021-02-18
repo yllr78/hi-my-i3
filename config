@@ -17,16 +17,16 @@
 #===>$mod key===mod键，mod4一般就是super或者win键。
 set $mod Mod4
 #===>设定工作区名，系统默认为1,2,3等数字，进行了图标字体的设定，喜欢默认数字风格的可以的注释掉下面这些图标设置
-set $WS1  1:
-set $WS2  2:
-set $WS3  3:
-set $WS4  4:
-set $WS5  5:
-set $WS6  6:
-set $WS7  7:
-set $WS8  8:
-set $WS9  9:
-set $WS0 10:
+set $WS1  1:1.
+set $WS2  2:2.
+set $WS3  3:3.
+set $WS4  4:4.
+set $WS5  5:5.
+set $WS6  6:6.
+set $WS7  7:7.
+set $WS8  8:8.
+set $WS9  9:8.
+set $WS0 10:9.
 
 
 #===> wallpaper-固定设定壁纸图片。
@@ -50,7 +50,7 @@ font pango:Monaco 10
 #===>autostart programs===自启动软件，一般这些软件名字都是小写，可在/usr/share/applications里面查看程序的实际名字。示例：
 exec --no-startup-id mate-power-manager
 exec --no-startup-id fluxgui
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5 &
 exec --no-startup-id megasync
 exec --no-startup-id kuaipan4uk &
 exec --no-startup-id nutstore
@@ -316,6 +316,13 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+s restart
 # ===> 退出i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# ============================》窗口间距设置《===========================
+# ===> 启用窗口间距
+smart_gaps on
+gaps inner 10
+gaps outer 5
 
 
 # ============================》状态条设置《===========================
