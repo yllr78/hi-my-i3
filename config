@@ -17,16 +17,16 @@
 #===>$mod key===mod键，mod4一般就是super或者win键。
 set $mod Mod4
 #===>设定工作区名，系统默认为1,2,3等数字，进行了图标字体的设定，喜欢默认数字风格的可以的注释掉下面这些图标设置
-set $WS1  1:1.
-set $WS2  2:2.
-set $WS3  3:3.
-set $WS4  4:4.
-set $WS5  5:5.
-set $WS6  6:6.
-set $WS7  7:7.
-set $WS8  8:8.
-set $WS9  9:8.
-set $WS0 10:9.
+set $WS1  1:
+set $WS2  2:
+set $WS3  3:
+set $WS4  4:
+set $WS5  5:
+set $WS6  6:
+set $WS7  7:
+set $WS8  8:
+set $WS9  9:
+set $WS0 10:
 
 
 #===> wallpaper-固定设定壁纸图片。
@@ -38,12 +38,11 @@ exec ~/hi-my-i3/wallpaper.sh &
 
 #===> transparent-设置透明须安装picom，并在此指定软件和透明度（默认0.75），sleep保证transset在其所设置的软件之后启动，根据情况调节大小。
 exec --no-startup-id picom -b
-exec --no-startup-id sleep .2 && exec transset-df -n i3bar 0.75
+# exec --no-startup-id sleep .2 && exec transset-df -n i3bar 0.75
 
 #===> font-字体及其大小
 # font pango:monospace 10
 font pango:Monaco 10
-
 
 
 # ============================》应用程序设置《===========================
@@ -368,6 +367,8 @@ bindsym $mod+m bar mode toggle
 
 #===>调用conky实现的i3bar
 bar {
+    #启动i3bar,-t参数实现透明
+    i3bar_command i3bar -t
     # i3bar调用conky
     status_command conky -c ~/hi-my-i3/conkyrc_bar1.10
     # 显示位置，如果想显示在屏幕下方，就注释这条设置
@@ -377,13 +378,13 @@ bar {
     # 显示/隐藏切换键
     #modifier $mod
     # 拆解工作区名（隐藏前面的1:2:3:……）
-    strip_workspace_numbers yes
+    #strip_workspace_numbers yes
     # 定义分隔符（适用于i3status）
     #separator_symbol " "
     colors {
         background #333333
         statusline #FFFFFF
-        #eparator  #3399FF
+        #separator  #3399FF
         # 工作区颜色         边框    背景    文字
         focused_workspace  #111111 #111111 #FFFFFF
         active_workspace   #FFFFFF #FFFFFF #FFFFFF
