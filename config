@@ -5,7 +5,7 @@
 # Version : v0.1
 #
 # 依赖:conky(状态栏信息),feh(桌面背景图片设定),dmenu(用户程序菜单),font-awesome(图标字体)
-# 可选组件推荐:xcompmgr(组件背景透明),freetype-infinality(字体渲染),pcmanfm(轻量级文件管理器),xfce4-terminal(自带背景透明的轻量级终端模拟器),scrot(命令行截图工具),Monaco(漂亮的编程字体),mate-power-manager(轻量级电源管理),networkmanager、network-manager-applet和nm-connection-editor（网络管理工具）,alsa-utils（声音管理）
+# 可选组件推荐:picom(组件背景透明毛玻璃效果),freetype-infinality(字体渲染),pcmanfm(轻量级文件管理器),xfce4-terminal(自带背景透明的轻量级终端模拟器),scrot(命令行截图工具),Monaco(漂亮的编程字体),mate-power-manager(轻量级电源管理),networkmanager、network-manager-applet和nm-connection-editor（网络管理工具）,alsa-utils（声音管理）
 
 # 部分特性可能需要新版本支持，请更新至最新版本或自行修改相应部分
 # 更多内容请参考:
@@ -36,8 +36,8 @@ set $WS0 10:9.
 # feh--automatically change wallpaer
 exec ~/hi-my-i3/wallpaper.sh &
 
-#===> transparent-设置透明须安装xcompgr，并在此指定软件和透明度（默认0.75），sleep保证transset在其所设置的软件之后启动，根据情况调节大小。
-exec --no-startup-id xcompmgr &
+#===> transparent-设置透明须安装picom，并在此指定软件和透明度（默认0.75），sleep保证transset在其所设置的软件之后启动，根据情况调节大小。
+exec --no-startup-id picom -b
 exec --no-startup-id sleep .2 && exec transset-df -n i3bar 0.75
 
 #===> font-字体及其大小
@@ -90,8 +90,6 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 # dmenu
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# appfinder
-bindsym $mod+a exec --no-startup-id xfce4-appfinder
 
 # browsers-浏览器
 bindsym $mod+Shift+c exec chromium
@@ -155,7 +153,7 @@ floating_modifier $mod
 #===>kill focused window-关闭窗口
 bindsym mod1+F4 kill
 
-#===>hide | show window-隐藏和再现窗口，minus为-号，plus为+号
+#===>hide | show window-隐藏和再现窗口
 bindsym $mod+minus move scratchpad
 bindsym $mod+plus scratchpad show
 
@@ -217,7 +215,7 @@ bindsym $mod+Up move up
 bindsym $mod+Right move right
 
 #===>窗口拆分设置
-# split in horizontal orientation-左右拆分窗口（默认）
+# split in horizontal orientation-左右拆分窗口
 bindsym $mod+mod1+h split h
 # split in vertical orientation-上下拆分窗口
 bindsym $mod+v split v
@@ -323,8 +321,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # ============================》窗口间距设置《===========================
 # ===> 启用窗口间距
 smart_gaps on
-gaps inner 10
-gaps outer 5
+gaps inner 8
+gaps outer 2
 
 
 # ============================》状态条设置《===========================
