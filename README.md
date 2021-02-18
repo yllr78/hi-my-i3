@@ -113,19 +113,21 @@ $mod key使用的默认的Mod4，**一般指的是**windows键或super键或meta
 如需要使用固定壁纸，在**i3/config**中取消“设定壁纸图片”的命令的注释，并注释掉“自动更换壁纸”的命令。
 
 
-**注意**
-～/hi-my-i3/wallpaper.sh文件需要有可执行权限，如壁纸加载出问题，执行：
-`chmod +x ～/hi-my-i3/wallpaper.sh`
-给予执行权限。
-
-可参考[archwiki-feh](https://wiki.archlinux.org/index.php/Feh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-
 ## 电源管理
 `$mod+alt+l`锁屏。
 
 锁屏图片设置见上面的说明。
 
+### **注意**
+* ～/hi-my-i3/wallpaper.sh文件需要有可执行权限，如壁纸加载出问题，执行：
+`chmod +x ～/hi-my-i3/wallpaper.sh`
+给予执行权限。
+* 将picom目录复制到~/.config目录下可以个性化设置picom,如果喜欢默认配置，也可以不做这一步
+
+* 可参考[archwiki-feh](https://wiki.archlinux.org/index.php/Feh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 
 
-                                                  Allen Qiu
+
+
+                                                                              Yllr
