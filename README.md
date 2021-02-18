@@ -9,7 +9,7 @@
 - 调用conky作为i3bar输出
 - dmenu启动程序
 - feh显示壁纸
-- xcompmgr透明插件（可选）
+- picom窗体透明和毛玻璃效果插件（可选）
 - infinality字体渲染美化（可选）
 - pcmanfm轻量级文件管理器（可选）
 - xfce4-terminal自带背景透明的轻量级终端模拟器（可选）
