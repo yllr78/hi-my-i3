@@ -23,7 +23,7 @@
 
 ## 字体
 
-- Monaco_Linux-Powerline:一个很好看的等宽英文字体，非常适用于写代码，若显示不佳请用infinality渲染，打过字体补丁不会出现terminal找不到的问题，还可作为vim的powerline插件字体来用。
+- Monaco for Powerline:一个很好看的等宽英文字体，非常适用于写代码，若显示不佳请用infinality渲染，打过字体补丁不会出现terminal找不到的问题，还可作为vim的powerline插件字体来用。
 - font-awesome:开源的图标字体，可通过简单地复制粘贴使用，具体查看:
 http://fortawesome.github.io/Font-Awesome/cheatsheet/
 
