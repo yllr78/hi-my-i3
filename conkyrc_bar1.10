@@ -31,8 +31,8 @@ conky.config = {
 }
 
 conky.text = [[
- ${upspeed enp0s3}/s  ${downspeed enp0s3}/s \
 IP ${addrs enp0s3} \
+ ${upspeed enp0s3}/s  ${downspeed enp0s3}/s \
  ${cpu cpu0}% \
  ${mem} \
  ${fs_used /} \
