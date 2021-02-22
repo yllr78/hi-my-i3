@@ -320,8 +320,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # ============================》窗口间距设置《===========================
 # ===> 启用窗口间距
 smart_gaps on
-gaps inner 8
-gaps outer 2
+gaps inner 10
+gaps outer 0
 
 
 # ============================》状态条设置《===========================
