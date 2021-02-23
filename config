@@ -37,7 +37,7 @@ set $WS0 10:
 exec ~/hi-my-i3/wallpaper.sh &
 
 #===> transparent-设置透明须安装picom，并在此指定软件和透明度（默认0.75），sleep保证transset在其所设置的软件之后启动，根据情况调节大小。
-exec --no-startup-id picom -CGb
+exec --no-startup-id picom -b
 # exec --no-startup-id sleep .2 && exec transset-df -n i3bar 0.75
 
 #===> font-字体及其大小
